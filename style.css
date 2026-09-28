@@ -1,0 +1,1147 @@
+/* =========================================================
+   MUAHS ANNIVERSARY WEBSITE
+   COMPLETE STYLE SHEET
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #17001f;
+}
+
+/* =========================================================
+   GENERAL PAGES
+   ========================================================= */
+
+.page {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* =========================================================
+   PAGE 1
+   ========================================================= */
+
+.page-one {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(145, 53, 190, 0.35), transparent 35%),
+    radial-gradient(circle at 20% 20%, rgba(255, 133, 214, 0.12), transparent 25%),
+    linear-gradient(145deg, #190024, #3c0756 48%, #16001f);
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s ease,
+    filter 1.5s ease;
+}
+
+.page-one.magic-start {
+  filter: brightness(1.7);
+  transform: scale(1.04);
+}
+
+.page-one.page-fade-out {
+  opacity: 0;
+  transform: scale(1.12);
+  pointer-events: none;
+}
+
+/* =========================================================
+   PAGE 1 FLOATING ELEMENTS
+   ========================================================= */
+
+.floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star,
+.diamond,
+.heart,
+.flower {
+  position: absolute;
+}
+
+/* ---------------- STAR ---------------- */
+
+.star {
+  width: 18px;
+  height: 18px;
+  background: #f9d9ff;
+  clip-path: polygon(
+    50% 0%,
+    61% 38%,
+    100% 50%,
+    61% 62%,
+    50% 100%,
+    39% 62%,
+    0% 50%,
+    39% 38%
+  );
+  opacity: 0.8;
+  filter: drop-shadow(0 0 10px #ffd9ff);
+  animation: floatStar 5s ease-in-out infinite;
+}
+
+.star-1 {
+  top: 18%;
+  left: 14%;
+}
+
+.star-2 {
+  right: 16%;
+  bottom: 20%;
+  width: 12px;
+  height: 12px;
+  animation-delay: 1.5s;
+}
+
+@keyframes floatStar {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(180deg);
+  }
+}
+
+/* ---------------- DIAMONDS ---------------- */
+
+.diamond {
+  width: 15px;
+  height: 15px;
+  background: #e7b8ff;
+  transform: rotate(45deg);
+  box-shadow: 0 0 15px rgba(255, 202, 255, 0.8);
+  animation: diamondFloat 6s ease-in-out infinite;
+}
+
+.diamond-1 {
+  top: 28%;
+  right: 25%;
+}
+
+.diamond-2 {
+  bottom: 27%;
+  left: 24%;
+  width: 10px;
+  height: 10px;
+  animation-delay: 2s;
+}
+
+@keyframes diamondFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(135deg);
+  }
+}
+
+/* ---------------- HEARTS ---------------- */
+
+.heart {
+  width: 18px;
+  height: 18px;
+  background: #f29edc;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 15px rgba(255, 145, 224, 0.6);
+  animation: heartFloat 5s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.heart::before {
+  top: -9px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 9px;
+}
+
+.heart-1 {
+  left: 18%;
+  bottom: 23%;
+}
+
+.heart-2 {
+  right: 17%;
+  top: 30%;
+  transform: rotate(-45deg) scale(0.7);
+  animation-delay: 2s;
+}
+
+@keyframes heartFloat {
+  0%,
+  100% {
+    transform: rotate(-45deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-45deg) translateY(-16px);
+  }
+}
+
+/* ---------------- FLOWERS ---------------- */
+
+.flower {
+  width: 30px;
+  height: 30px;
+  animation: flowerDrift 7s ease-in-out infinite;
+}
+
+.flower i {
+  position: absolute;
+  width: 13px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f5b4e9;
+  box-shadow: 0 0 10px rgba(255, 181, 239, 0.45);
+}
+
+.flower i:nth-child(1) {
+  top: 0;
+  left: 8px;
+}
+
+.flower i:nth-child(2) {
+  top: 5px;
+  right: 0;
+  transform: rotate(72deg);
+}
+
+.flower i:nth-child(3) {
+  bottom: 0;
+  right: 4px;
+  transform: rotate(144deg);
+}
+
+.flower i:nth-child(4) {
+  bottom: 0;
+  left: 4px;
+  transform: rotate(216deg);
+}
+
+.flower i:nth-child(5) {
+  top: 5px;
+  left: 0;
+  transform: rotate(288deg);
+}
+
+.flower::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #e7a4dc;
+  border-radius: 50%;
+  top: 11px;
+  left: 11px;
+}
+
+.flower-1 {
+  top: 12%;
+  right: 10%;
+}
+
+.flower-2 {
+  left: 9%;
+  bottom: 12%;
+  transform: scale(0.7);
+  animation-delay: 2s;
+}
+
+.flower-3 {
+  right: 8%;
+  bottom: 10%;
+  transform: scale(0.55);
+  animation-delay: 3s;
+}
+
+@keyframes flowerDrift {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(15deg);
+  }
+}
+
+/* =========================================================
+   PAGE 1 CENTER
+   ========================================================= */
+
+.page-one-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+
+.welcome-text {
+  color: #f7c8e9;
+  font-size: clamp(18px, 4vw, 28px);
+  font-weight: 400;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: welcomeAppear 2s ease forwards;
+}
+
+@keyframes welcomeAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.muhas-title {
+  margin-top: 12px;
+  color: #f3cf72;
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(70px, 18vw, 145px);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 8px;
+  text-shadow:
+    0 0 8px rgba(255, 219, 117, 0.7),
+    0 0 25px rgba(255, 199, 67, 0.35);
+  opacity: 0;
+  animation: titleAppear 2s 0.5s ease forwards;
+}
+
+@keyframes titleAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* =========================================================
+   KISS BUTTON
+   ========================================================= */
+
+.kiss-button {
+  margin-top: 35px;
+  padding: 13px 42px;
+  border: 1px solid rgba(248, 218, 255, 0.6);
+  border-radius: 50px;
+  background: rgba(255, 215, 248, 0.08);
+  color: #ffe6fa;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  opacity: 0;
+  animation:
+    buttonAppear 1.5s 2s ease forwards,
+    buttonBreath 2.5s 3.5s ease-in-out infinite;
+  backdrop-filter: blur(8px);
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+.kiss-button:hover {
+  background: rgba(255, 212, 246, 0.2);
+  box-shadow: 0 0 30px rgba(255, 194, 244, 0.5);
+  transform: scale(1.05);
+}
+
+@keyframes buttonAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonBreath {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(255, 203, 245, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 28px rgba(255, 203, 245, 0.65);
+  }
+}
+
+/* =========================================================
+   PAGE 2
+   ========================================================= */
+
+.page-two {
+  z-index: 1;
+  display: none;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(150, 24, 81, 0.25), transparent 38%),
+    linear-gradient(145deg, #25000e, #570d2a 50%, #21000c);
+  color: #ffd9e9;
+}
+
+.page-two.page-visible {
+  display: flex;
+  animation: pageTwoReveal 2s ease forwards;
+}
+
+@keyframes pageTwoReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   PAGE 2 FLOWERS
+   ========================================================= */
+
+.page-two-flowers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.pink-flower {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  opacity: 0.65;
+  filter: drop-shadow(0 0 12px rgba(255, 179, 216, 0.4));
+  animation: pageTwoFlowerFloat 8s ease-in-out infinite;
+}
+
+.pink-flower i {
+  position: absolute;
+  width: 16px;
+  height: 23px;
+  border-radius: 50%;
+  background: #f6b5d2;
+}
+
+.pink-flower i:nth-child(1) {
+  top: 0;
+  left: 11px;
+}
+
+.pink-flower i:nth-child(2) {
+  top: 6px;
+  right: 0;
+  transform: rotate(72deg);
+}
+
+.pink-flower i:nth-child(3) {
+  bottom: 0;
+  right: 5px;
+  transform: rotate(144deg);
+}
+
+.pink-flower i:nth-child(4) {
+  bottom: 0;
+  left: 5px;
+  transform: rotate(216deg);
+}
+
+.pink-flower i:nth-child(5) {
+  top: 6px;
+  left: 0;
+  transform: rotate(288deg);
+}
+
+.pink-flower::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e994ba;
+  left: 14px;
+  top: 14px;
+}
+
+.flower-two-1 {
+  top: 10%;
+  left: 8%;
+}
+
+.flower-two-2 {
+  top: 20%;
+  right: 10%;
+  transform: scale(0.65);
+  animation-delay: 2s;
+}
+
+.flower-two-3 {
+  bottom: 15%;
+  left: 12%;
+  transform: scale(0.7);
+  animation-delay: 3s;
+}
+
+.flower-two-4 {
+  right: 9%;
+  bottom: 12%;
+  transform: scale(0.5);
+  animation-delay: 1s;
+}
+
+@keyframes pageTwoFlowerFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(18deg);
+  }
+}
+
+/* =========================================================
+   PAGE 2 SCENES
+   ========================================================= */
+
+.page-two-scene,
+.door-content-scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-two-scene.active-scene,
+.door-content-scene.active-scene {
+  display: flex;
+  animation: sceneFadeIn 1.2s ease forwards;
+}
+
+@keyframes sceneFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   SEND A KISS
+   ========================================================= */
+
+.kiss-intro {
+  text-align: center;
+}
+
+.scene-label {
+  margin-bottom: 30px;
+  color: #f8bdd4;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.send-kiss-button {
+  padding: 15px 40px;
+  border: 1px solid #f6b5ce;
+  border-radius: 50px;
+  background: rgba(255, 190, 215, 0.08);
+  color: #ffe7f0;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 168, 205, 0.15);
+  transition: 0.4s ease;
+}
+
+.send-kiss-button:hover {
+  background: rgba(255, 190, 215, 0.2);
+  box-shadow: 0 0 35px rgba(255, 168, 205, 0.5);
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
+
+.question-card {
+  width: min(88%, 480px);
+  padding: 42px 30px;
+  border: 1px solid rgba(255, 192, 217, 0.35);
+  border-radius: 24px;
+  background: rgba(40, 0, 19, 0.65);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(239, 123, 166, 0.1);
+  backdrop-filter: blur(15px);
+  text-align: center;
+}
+
+.question-number {
+  color: #e9a1be;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.question-card h2 {
+  min-height: 70px;
+  color: #ffe4ed;
+  font-size: clamp(23px, 6vw, 32px);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+#answerInput {
+  width: 100%;
+  margin-top: 28px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 193, 216, 0.3);
+  border-radius: 12px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font-size: 16px;
+}
+
+#answerInput::placeholder {
+  color: rgba(255, 222, 235, 0.45);
+}
+
+#answerButton {
+  margin-top: 15px;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 30px;
+  background: #d77c9f;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#answerButton:hover {
+  background: #ec98b8;
+  transform: scale(1.04);
+}
+
+#answerMessage {
+  min-height: 25px;
+  margin-top: 15px;
+  color: #f7b5cf;
+}
+
+/* =========================================================
+   MAGIC KEY
+   ========================================================= */
+
+.key-wrapper {
+  text-align: center;
+}
+
+.key-message {
+  margin-bottom: 35px;
+  color: #ffdce9;
+  font-size: 22px;
+}
+
+.magic-key {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 0 20px rgba(183, 255, 202, 0.8));
+  animation: keyGlow 2s ease-in-out infinite;
+}
+
+.key-ring {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border: 7px solid #baffca;
+  border-radius: 50%;
+  left: 8px;
+  top: 25px;
+}
+
+.key-shaft {
+  position: absolute;
+  width: 65px;
+  height: 9px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #baffca, #f3fff5);
+  top: 43px;
+  left: 42px;
+  transform: rotate(-45deg);
+  transform-origin: left center;
+}
+
+.key-teeth {
+  position: absolute;
+  width: 20px;
+  height: 18px;
+  border-right: 8px solid #baffca;
+  border-bottom: 8px solid #baffca;
+  right: 5px;
+  top: 26px;
+  transform: rotate(-45deg);
+}
+
+@keyframes keyGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(183, 255, 202, 0.6));
+  }
+
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 35px rgba(183, 255, 202, 1));
+  }
+}
+
+.tap-key {
+  margin-top: 15px;
+  color: #baffca;
+  letter-spacing: 2px;
+}
+
+/* =========================================================
+   DOORS
+   ========================================================= */
+
+.doors-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 4vw, 35px);
+  width: 100%;
+  padding: 20px;
+}
+
+.door {
+  position: relative;
+  width: clamp(85px, 25vw, 150px);
+  height: clamp(190px, 52vw, 330px);
+  border-radius: 8px 8px 2px 2px;
+  cursor: pointer;
+  transform-origin: left center;
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.3),
+    0 20px 45px rgba(0, 0, 0, 0.45);
+  transition:
+    transform 1s ease,
+    box-shadow 0.5s ease;
+  overflow: hidden;
+}
+
+.door:hover {
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.2),
+    0 0 35px rgba(255, 214, 226, 0.25);
+}
+
+.red-door {
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.25), transparent 25%, rgba(255,255,255,.08) 50%, transparent 75%, rgba(0,0,0,.25)),
+    linear-gradient(#9e163c, #4f061c);
+}
+
+.purple-door {
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.25), transparent 25%, rgba(255,255,255,.08) 50%, transparent 75%, rgba(0,0,0,.25)),
+    linear-gradient(#722d88, #280633);
+}
+
+.golden-door {
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.25), transparent 25%, rgba(255,255,255,.18) 50%, transparent 75%, rgba(0,0,0,.25)),
+    linear-gradient(#d8a83b, #6b4510);
+}
+
+.door-panels {
+  position: absolute;
+  inset: 12px;
+  border: 2px solid rgba(255, 232, 198, 0.25);
+}
+
+.door-panels::before,
+.door-panels::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 35%;
+  border: 2px solid rgba(255, 232, 198, 0.2);
+}
+
+.door-panels::before {
+  top: 8%;
+}
+
+.door-panels::after {
+  bottom: 8%;
+}
+
+.door-handle {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f4d38a;
+  box-shadow: 0 0 10px rgba(255, 218, 135, 0.7);
+}
+
+.door-instruction {
+  position: absolute;
+  bottom: 10%;
+  color: #f7c8d8;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+/* =========================================================
+   RED WORLD
+   ========================================================= */
+
+.red-world {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(205, 45, 91, 0.25), transparent 40%),
+    linear-gradient(#25000d, #56091f);
+  animation: worldReveal 1.5s ease forwards;
+}
+
+.truth-dare-characters {
+  position: absolute;
+  width: 280px;
+  height: 300px;
+  top: 25%;
+}
+
+/* ---------------- GIRL ---------------- */
+
+.girl-character {
+  position: absolute;
+  left: 15px;
+  bottom: 0;
+  width: 100px;
+  height: 250px;
+}
+
+.girl-head {
+  position: absolute;
+  width: 58px;
+  height: 65px;
+  top: 18px;
+  left: 22px;
+  border-radius: 48% 48% 45% 45%;
+  background: linear-gradient(135deg, #eab39b, #bd725f);
+  z-index: 3;
+}
+
+.girl-hair {
+  position: absolute;
+  width: 85px;
+  height: 130px;
+  top: 0;
+  left: 8px;
+  border-radius: 50% 50% 45% 45%;
+  background: linear-gradient(135deg, #20151b, #080508);
+  z-index: 2;
+}
+
+.girl-hair::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 105px;
+  right: -8px;
+  top: 45px;
+  border-radius: 50%;
+  background: #10090d;
+}
+
+.girl-neck {
+  position: absolute;
+  width: 20px;
+  height: 25px;
+  top: 78px;
+  left: 41px;
+  background: #d9977f;
+}
+
+.girl-body {
+  position: absolute;
+  width: 65px;
+  height: 80px;
+  top: 92px;
+  left: 18px;
+  border-radius: 18px 18px 8px 8px;
+  background: linear-gradient(#e7a7bf, #b8587d);
+}
+
+.girl-skirt {
+  position: absolute;
+  width: 95px;
+  height: 65px;
+  top: 150px;
+  left: 3px;
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+  background: linear-gradient(#4a1835, #1e0818);
+}
+
+.girl-leg {
+  position: absolute;
+  width: 15px;
+  height: 70px;
+  top: 205px;
+  background: #c98b78;
+  border-radius: 10px;
+}
+
+.girl-leg.left-leg {
+  left: 30px;
+}
+
+.girl-leg.right-leg {
+  left: 62px;
+}
+
+.girl-arm {
+  position: absolute;
+  width: 13px;
+  height: 65px;
+  top: 98px;
+  border-radius: 10px;
+  background: #d9977f;
+  transform-origin: top;
+}
+
+.girl-arm.left-arm {
+  left: 12px;
+  transform: rotate(35deg);
+}
+
+.girl-arm.right-arm {
+  right: 8px;
+  transform: rotate(-35deg);
+}
+
+/* ---------------- GUY ---------------- */
+
+.guy-character {
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  width: 105px;
+  height: 255px;
+}
+
+.guy-head {
+  position: absolute;
+  width: 60px;
+  height: 67px;
+  top: 15px;
+  left: 22px;
+  border-radius: 48%;
+  background: linear-gradient(135deg, #dca88f, #a86552);
+  z-index: 3;
+}
+
+.guy-hair {
+  position: absolute;
+  width: 65px;
+  height: 42px;
+  top: 5px;
+  left: 20px;
+  border-radius: 50% 50% 20% 20%;
+  background: #161216;
+  z-index: 4;
+}
+
+.glasses {
+  position: absolute;
+  z-index: 5;
+  top: 39px;
+  left: 17px;
+  width: 75px;
+  height: 25px;
+}
+
+.glasses::before,
+.glasses::after {
+  content: "";
+  position: absolute;
+  width: 27px;
+  height: 19px;
+  border: 2px solid #17121a;
+  border-radius: 5px;
+}
+
+.glasses::before {
+  left: 0;
+}
+
+.glasses::after {
+  right: 0;
+}
+
+.guy-neck {
+  position: absolute;
+  width: 22px;
+  height: 25px;
+  top: 78px;
+  left: 41px;
+  background: #b97863;
+}
+
+.guy-hoodie {
+  position: absolute;
+  width: 83px;
+  height: 105px;
+  top: 92px;
+  left: 10px;
+  border-radius: 20px 20px 8px 8px;
+  background: linear-gradient(#302b36, #0d0b10);
+}
+
+.guy-pants {
+  position: absolute;
+  width: 75px;
+  height: 70px;
+  top: 190px;
+  left: 15px;
+  background: #111018;
+}
+
+.guy-arm {
+  position: absolute;
+  width: 14px;
+  height: 78px;
+  top: 100px;
+  background: #27232b;
+  border-radius: 10px;
+  transform-origin: top;
+}
+
+.guy-arm.left-arm {
+  left: 2px;
+  transform: rotate(28deg);
+}
+
+.guy-arm.right-arm {
+  right: 0;
+  transform: rotate(-28deg);
+}
+
+/* ---------------- TRUTH OR DARE OBJECT ---------------- */
+
+.truth-or-dare-object {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  left: 102px;
+  top: 92px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #fff, #e9d8ff 15%, #8062a9 45%, #2d163f 75%);
+  box-shadow: 0 0 25px rgba(212, 173, 255, 0.45);
+  animation: objectSpin 4s linear infinite;
+}
+
+.truth-or-dare-object span {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  top: 27px;
+  left: 27px;
+}
+
+@keyframes objectSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.red-scene-text {
+  position: absolute;
+  bottom: 12%;
+  width: 90%;
+  text-align: center;
+  color: #ffdce8;
+  font-size: clamp(20px, 5vw, 31px);
+  line-height: 1.35;
+  text-shadow: 0 0 20px rgba(255, 138, 176, 0.4);
+}
+
+/* =========================================================
+   PURPLE WORLD
+   =================================================
